@@ -1,0 +1,5 @@
+*
+!.gitignore
+!frontend-self-test-strategy.md
+!frontend-self-test-ai-agent-guide.md
+!.trae/skills/vue3-self-test/SKILL.md
