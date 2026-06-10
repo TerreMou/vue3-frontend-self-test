@@ -1,0 +1,21 @@
+erDiagram
+    PROJECT ||--o{ RESOURCE : "1:N（可为 0，BR-003）"
+    PROJECT ||--o{ MEMBER : "1:N（初始化不可为空，BR-004）"
+    PROJECT {
+        string projectCode PK "项目唯一编码"
+        string businessDomain "业务领域（隔离维度）"
+        string status "状态机沿用现有"
+        datetime validPeriod "有效期 / 起止时间（BR-008）"
+    }
+    RESOURCE {
+        string resourceId PK "资源实例 ID"
+        string projectCode FK "所属项目"
+        string resourceType "BMS / 虚机"
+        string status "独立增删 / 释放（BR-003 / BR-009）"
+    }
+    MEMBER {
+        string memberId PK "成员关联 ID"
+        string projectCode FK "所属项目"
+        string phone "手机号（唯一标识，BR-010）"
+        string role "项目成员（3 子角色：项目负责人 / 项目协管员 / 项目参与人）"
+    }
